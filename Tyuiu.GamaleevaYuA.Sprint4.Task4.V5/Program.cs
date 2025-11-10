@@ -1,4 +1,4 @@
-﻿using Tyuiu.GamaleevaYuA.Sprint4.Task3.V19.Lib;
+﻿using Tyuiu.GamaleevaYuA.Sprint4.Task4.V5.Lib;
 internal class Program
 {
     private static void Main(string[] args)
@@ -13,21 +13,31 @@ internal class Program
         Console.WriteLine("* Выполнила: Гамалеева Юлия Андреевна | ИБКСб-25-1                        *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* Дан двумерный целочисленный массив 5 на 5 элементов заполненный         *");
-        Console.WriteLine("* статическими значениями в диапазоне от 3 до 9 подсчитать количество     *");
-        Console.WriteLine("* четных элементов во всём массиве.                                       *");
+        Console.WriteLine("* статическими значениями в диапазоне от 3 до 9 подсчитать количество четн*");
+        Console.WriteLine("* элементов во всём массиве.                                              *");
         Console.WriteLine("*                                                                         *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
         Console.WriteLine("***************************************************************************");
-        int[,] array = { { 6, 5, 6, 3, 8 }, { 9, 4, 4, 3, 4 }, { 3, 3, 6, 8, 6 }, { 6, 5, 3, 4, 3 }, { 9, 3, 5, 3, 7 } };
-        int rows = array.GetUpperBound(0) + 1;
-        int cols = array.GetUpperBound(1) + 1;
+        Console.WriteLine("Введите количество строк");
+        int rows = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введите количество столбцов");
+        int cols = Convert.ToInt32(Console.ReadLine());
+        int[,] matrix = new int[rows, cols];
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.WriteLine("Введите значение " + i +  "." + j + " элемента массива: ");
+                matrix[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
         Console.WriteLine("Массив: ");
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                Console.Write($"{array[i, j]} \t");
+                Console.Write($"{matrix[i, j]} \t");
             }
             Console.WriteLine();
         }
@@ -35,8 +45,8 @@ internal class Program
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
         Console.WriteLine("***************************************************************************");
-        int res = ds.Calculate(array);
-        Console.WriteLine("Количество чётных элементов массива: " + res);
+        int res = ds.Calculate(matrix);
+        Console.WriteLine("Сумма чётных элементов массива: " + res);
         Console.ReadKey();
     }
 }
